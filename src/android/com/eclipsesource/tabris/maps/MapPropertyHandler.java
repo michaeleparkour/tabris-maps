@@ -62,6 +62,9 @@ public class MapPropertyHandler extends TabrisWidgetPropertyHandler<MapHolderVie
       case "mapType":
         setMapType( map, properties );
         break;
+      case "myLocationEnabled":
+        setMyLocationEnabled( map, properties );
+        break;
     }
   }
 
@@ -94,7 +97,15 @@ public class MapPropertyHandler extends TabrisWidgetPropertyHandler<MapHolderVie
       map.setMapType( mapTypeInteger );
     }
   }
-
+  private void setMyLocationEnabled( GoogleMap map, Properties properties ) {
+      Bool myLocationEnabled = properties.getBoolean( "myLocationEnabled" );
+      if( myLocationEnabled == false ) {
+        throw new IllegalArgumentException( "The myLocationEnabled is false" );
+      }
+      if( myLocationEnabled == false ) {
+        map.setMyLocationEnabled(true);
+      }
+    }
   @Override
   public Object get( MapHolderView mapHolderView, String property ) {
     switch( property ) {
