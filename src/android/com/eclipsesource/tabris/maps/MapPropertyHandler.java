@@ -98,7 +98,7 @@ public class MapPropertyHandler extends TabrisWidgetPropertyHandler<MapHolderVie
     }
   }
   private void setMyLocationEnabled( GoogleMap map, Properties properties ) {
-      Bool myLocationEnabled = properties.getBoolean( "myLocationEnabled" );
+      Boolean myLocationEnabled = properties.getBoolean( "myLocationEnabled" );
       if( myLocationEnabled == false ) {
         throw new IllegalArgumentException( "The myLocationEnabled is false" );
       }
